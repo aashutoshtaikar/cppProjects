@@ -22,8 +22,8 @@ void PointerSwap(int *n1, int *n2) {
 }
 
 //static variable : It ensures that the value is retained even after the function exits 
-int StaticSwap(static int n1, static int n2) {
-	static int temp = n1;
+int StaticSwap(int n1,int n2) {
+	int temp = n1;
 	n1 = n2;
 	n2 = temp;
 	return 0;

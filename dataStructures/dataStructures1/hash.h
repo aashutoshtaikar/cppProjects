@@ -25,7 +25,6 @@ public:
 	void PrintTable();						//print the info contained in the first items of each of the buckets and how many items are in the bucket
 	void PrintItemsinIndex(int index);
 	int findBucket(string name);
-
 };
 
 HashIt::HashIt() {

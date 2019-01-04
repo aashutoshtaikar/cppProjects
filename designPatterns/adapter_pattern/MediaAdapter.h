@@ -25,4 +25,8 @@ class MediaAdapter:public MediaPlayer{
            amp->playMp4(fileName);
         }
     }
+
+    ~MediaAdapter(){
+        delete amp;
+    }
 };

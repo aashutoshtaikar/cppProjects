@@ -24,7 +24,7 @@ int main(){
 	hashObj.PrintTable();
 	hashObj.PrintItemsinIndex(4);
 	//hashObj.findBucket("Aashutosh");
-	system("pause");
+	//system("pause");
 	
 }
 

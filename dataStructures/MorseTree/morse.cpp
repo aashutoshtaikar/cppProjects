@@ -1,102 +1,52 @@
-#include<stdio.h>
-#include <iostream>
-
-void userInput();
-void arrayElement();
-void FinalCrypt();
-int userIp[4];
-char temp[10000];
-int code;
-
-char zero[]="===.===.===.===.===";
-char one[]= "=.===.===.===.===";
-char two[]= "=.=.===.===.===";
-char three[]= "=.=.=.===.===";
-char four[]= "=.=.=.=.===";
-char five[]= "=.=.=.=.=";
-char six[]= "===.=.=.=.=";
-char seven[]= "===.===.=.=.=";
-char eight[]= "===.===.===.=.=";
-char nine[]= "===.===.===.===.=";
-
-int main()
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include"BinaryTree.h"
+using namespace std;
+namespace MyEnum
 {
-	userInput();
-	arrayElement();
-	FinalCrypt();
+	enum mtCodes{
+		A = 59,
+		B = 37,
+		C = 38,
+		D = 51,
+		E = 61,
+		F = 34,
+		G = 52,
+		H = 33,
+		I = 57,
+		J = 44,
+		K = 55,
+		L = 35,
+		M = 60,
+		N = 58,
+		O = 56,
+		P = 36,
+		Q = 47,
+		R = 50,
+		S = 49,
+		T = 62,
+		U = 53,
+		V = 41,
+		X = 45,
+		Y = 46,
+		Z = 39
+	};
+	static const mtCodes All[]={A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,X,Y,Z};
+}
+static BTree x;
+void fun(const MyEnum::mtCodes e)
+{
+		x.insert(e); 
+}
+
+int main(){
+	//BTree x;
+
+	for(const auto e:MyEnum::All){
+		fun(e);
+	}
+
+	
 	return 0;
 }
-
-void userInput()
-{
-	printf("Enter your code\n");
-	std::cin>>code;
-	for (int i = 3; i >= 0; i--) 
-	{
-    	userIp[i] = code % 10;
-    	code /= 10;
-	}
-};
-
-void arrayElement()
-{
-	for( int i = 0; i < 4; i++ )
-    {
-    	if(userIp[i]==0)
-    	for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=zero[j];
-    	}
-  		else if(userIp[i]==1)
-  	  	for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=one[j];
-    	}
-		else if(userIp[i]==2)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=two[j];
-    	}
-		else if(userIp[i]==3)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=three[j];
-    	}
-    	else if(userIp[i]==4)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=four[j];
-    	}
-    	else if(userIp[i]==5)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=five[j];
-    	}
-		else if(userIp[i]==6)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=six[j];
-    	}
-		else if(userIp[i]==7)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=seven[j];
-    	}
-		else if(userIp[i]==8)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=eight[j];
-    	}
-		else if(userIp[i]==9)
-		for (int j = 0; j < 19; j++)
-    	{
-    		temp[j]=nine[j];
-    	}
-     }
-}
-
-
-void FinalCrypt()
-{
-printf("morse code:%s\n",temp);
-};

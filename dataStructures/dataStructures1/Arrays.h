@@ -34,6 +34,11 @@ vector<int> reverseArray(vector<int> a) {
 	return a;
 }
 
+template<typename T, size_t N>
+void foo(T (&bar)[N])			//array of size N passed as reference
+{
+    // use N here
+}
 ////arrays----------------------------------------------------
 
 //int inputArr[] = { 1,1,1,4,5,6 };
