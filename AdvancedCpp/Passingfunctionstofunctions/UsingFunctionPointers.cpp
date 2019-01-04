@@ -38,8 +38,7 @@ int main(){
 
    cout <<"elements containing 3 letter string: " << endl;
    cout << count_if(texts.begin(),texts.end(),match) << endl; //algorithm which counts if match criteria is true
-    
-    cout << countStrings(texts,&matchx) << endl;
+   cout << countStrings(texts,&matchx) << endl;
 
     return 0;
 }
