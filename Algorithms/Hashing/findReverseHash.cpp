@@ -1,8 +1,3 @@
- #include <iostream>
-#include<string>
-#include<list>
-using namespace std;
-
 /* find a 9 letter string of characters that contains only letters from acdegilmnoprstuw such that the hash(the_string)
  is 910897038977002 if hash is defined by the following pseudo-code: Int64 hash (String s) { Int64 h = 7 String letters 
  = "acdegilmnoprstuw" for(Int32 i = 0; i < s.length; i++) { h = (h * 37 + letters.indexOf(s[i])) } return h } 
@@ -11,6 +6,11 @@ using namespace std;
 
 680131659347 - leepadg
 930846109532517 - ? */
+
+#include <iostream>
+#include<string>
+#include<list>
+using namespace std;
 
 const string letters = "acdegilmnoprstuw";
 list<char> tmp;
