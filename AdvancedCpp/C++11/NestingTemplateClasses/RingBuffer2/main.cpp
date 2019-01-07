@@ -1,7 +1,13 @@
 #include<iostream>
 #include"ring.h"
+
 using namespace std;
 
+/* 
+sudo apt-get install libcurl4-gnutls-dev
+"/usr/include/x86_64-linux-gnu/curl"
+#include<curl/curl.h>
+*/
 
 int main(){
     // ring<int>::iterator it;
