@@ -1,15 +1,16 @@
 #include<iostream>
-
 using namespace std;
 
-//1. auto with trailing return type (->)
+/* Only using auto in C++11 for return type is not supported */
+
+//1. C++11 auto can be used with template function and trailing return type (->)
 template<class T>
 auto autoTest(T value) -> decltype(value){
 
     return value;
 }
 
-//2. regular template
+//2. regular template function
 template<class T>
 T regularTemplate(T value) {
 
