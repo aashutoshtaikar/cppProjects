@@ -14,10 +14,10 @@ bool matchx(string test,int sz){
 }
 
 //own version of count_if which accepts a function using function pointer speciied in the arg declaration
-int countStrings(vector<string> &texts, bool (*match)(string test,int sz)){
+int countStrings(vector<string> &texts, bool (*pMatchx)(string test,int sz)){
     int count{0};
     for(auto& e:texts){
-        if(matchx(e,3)==true){
+        if(pMatchx(e,3)==true){
             count++;
         }
     }

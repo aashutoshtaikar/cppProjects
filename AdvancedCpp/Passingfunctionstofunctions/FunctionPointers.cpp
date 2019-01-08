@@ -13,10 +13,10 @@ void testVal(int value){
 }
 
 int main(){
-    //declaring a function pointer
-    void (*pTest)(); //void pointer to a function
-    //pTest = &test();  //() are calling operator so should not be used here
+    //declaring a function pointer to the test function
+    void (*pTest)(); //void pointer to a function, no parameters
     
+    //assigning function to a function pointer;   pTest = &test();  //() is a function-call-operator so cannot be used for assingment
     pTest = &test;      // defining addr of test //OR
     pTest = test;       // name of the function is pointer to that function
     
@@ -24,7 +24,8 @@ int main(){
     (*pTest)();         //OR
     pTest();
 
-    (*test)();  //implicit function pointer - name of that function 
+    //undeclared implicit function pointer
+    (*test)();  // name of that function is a pointer to that function
     test();     //regular function call
 
     return 0;
