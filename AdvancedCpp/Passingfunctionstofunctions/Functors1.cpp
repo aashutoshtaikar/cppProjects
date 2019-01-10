@@ -50,7 +50,7 @@ int main(){
 
     cout << "--------------" << endl;
     
-    Test *xtests[2];
+    Test *xtests[3];
 
     xtests[0] = new MatchTest();
     check("lion",*xtests[0]);
@@ -58,15 +58,14 @@ int main(){
     xtests[1] = new NewMatchTest();
     check("tiger",*xtests[1]);
 
-        xtests[2] = new NewMatchTest();
+    xtests[2] = new NewMatchTest();
     check("tiger",*xtests[2]);
 
     
 
-    for(auto& e: xtests){ //does not work //free(): invalid pointer
-        delete e;
-        cout << "runnin";
-    }
+    // for(auto& e: xtests){ 
+    //     delete e;
+    // }
 
     // delete [] xtests; //doesn't work correctly //free(): invalid pointer
 
@@ -74,25 +73,15 @@ int main(){
     //     delete xtests[i];
     // }
     
-    // for(auto& e: xtests){ //does not work //free(): invalid pointer
-    //     free(e);
-    // }
+    for(auto& e: xtests){ //does not work //free(): invalid pointer
+        free(e);
+    }
     
     //free(xtests[1]);
 
-
-    check("lion",*xtests[2]);
-
-    int *newArr[2];
-
-    newArr[0] = new int(0);
-    newArr[1] = new int(1);
-    newArr[2] = new int(2);
     
+   check("lion",*xtests[2]);
 
-    for(auto e : newArr){
-        cout << *e;
-    }
 
     return 0;
 }
