@@ -1,9 +1,14 @@
 #include<iostream>
 #include<memory.h>
+#include<vector>
 using namespace std;
 
-
-/* Allocating memory */
+/*
+C++98:
+    Lvalue = left ; Rvalue = Right
+C++11:
+    Lvalue = anything you can take the address of
+ */
 
 class Test{
 private:
@@ -28,7 +33,7 @@ public:
         }
     }
 
-    Test(const Test &other){
+    Test(const Test &other){                //copy constructor always has a const Lvalue reference parameter to it
         cout << "copy constructor"  << endl;
         _pBuffer = new int[SIZE]{};
 
@@ -45,7 +50,7 @@ public:
         
         return *this;
     }
-
+    
     friend ostream &operator<<(ostream &out, const Test &test){
         out << "hello from test";
         return out;
@@ -55,7 +60,7 @@ public:
         cout << "freeing memory" << endl;
         delete [] _pBuffer;
     }
-    
+
 };
 
 Test getTest(){
@@ -63,11 +68,24 @@ Test getTest(){
 }                   //when function return objects they have to copy those objects, thus runs copy constructor
                     //copies the obj into temporary return value
 
+
+
 int main(){
-    Test test1 = getTest();         //copying the temporary return value object to test1 object, thus runs a copy constructor
-    //test1 = testx //runs assignment
-    cout << "------------" << endl;
-    cout << test1 << endl;
+    Test test1 = getTest();
+
+    
+    
+    
+    //Lvalue ref to an Lvalue
+    Test &rTest1 = test1;
+
+    //If we try to bind a Lvalues ref to Rvalue we get error if const is not used 
+    const Test &rTest2 = getTest();
+    //const Lvalue references can infact bind to Rvalues, Rvalue lifetime gets extended as long as Lvalue ref exist
+    //the return obj from getTest() exist as long as Lvalue exist
+
+    Test test2(Test(1)); //Test(1) is an Rvalue as there is no object name thus it is passed to a const Lvalue ref
+
 
     return 0;
 }

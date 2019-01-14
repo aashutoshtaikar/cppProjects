@@ -1,9 +1,14 @@
 #include<iostream>
 #include<memory.h>
+#include<vector>
 using namespace std;
 
-
-/* Allocating memory */
+/*
+C++98:
+    Lvalue = left ; Rvalue = Right
+C++11:
+    Lvalue = anything you can take the address of
+ */
 
 class Test{
 private:
@@ -28,7 +33,7 @@ public:
         }
     }
 
-    Test(const Test &other){
+    Test(const Test &other){                //copy constructor always has a const Lvalue reference parameter to it
         cout << "copy constructor"  << endl;
         _pBuffer = new int[SIZE]{};
 
@@ -45,7 +50,7 @@ public:
         
         return *this;
     }
-
+    
     friend ostream &operator<<(ostream &out, const Test &test){
         out << "hello from test";
         return out;
@@ -55,7 +60,7 @@ public:
         cout << "freeing memory" << endl;
         delete [] _pBuffer;
     }
-    
+
 };
 
 Test getTest(){
@@ -63,11 +68,32 @@ Test getTest(){
 }                   //when function return objects they have to copy those objects, thus runs copy constructor
                     //copies the obj into temporary return value
 
+//function taking Lvalue ref
+void check(const Test &value){
+    cout << "Lvalue function" << endl; 
+}
+
+//function taking Rvalue ref -- const Rvalue ref is not needed
+void check(Test&& value){
+    cout << "Rvalue function" << endl; 
+}
+
 int main(){
-    Test test1 = getTest();         //copying the temporary return value object to test1 object, thus runs a copy constructor
-    //test1 = testx //runs assignment
-    cout << "------------" << endl;
-    cout << test1 << endl;
+    Test test1 = getTest();
+
+    /* if we could identify temp Rvalues  --> optimizations */
+    
+    Test &ltest1 = test1;
+
+    
+    //Test &&rtest1 = test1;    //cannot bind Rvalue ref to Lvalues
+                                //&&rtest1 is an Rvalue
+    
+    Test &&rtest1 = getTest();  //Can bind Rvalue references to Rvalues
+
+    check(test1);
+    check(getTest());
+    check(Test());
 
     return 0;
 }

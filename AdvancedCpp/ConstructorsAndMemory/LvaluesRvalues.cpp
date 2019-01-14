@@ -1,9 +1,14 @@
 #include<iostream>
 #include<memory.h>
+#include<vector>
 using namespace std;
 
-
-/* Allocating memory */
+/*
+C++98:
+    Lvalue = left ; Rvalue = Right
+C++11:
+    Lvalue = anything you can take the address of
+ */
 
 class Test{
 private:
@@ -45,7 +50,7 @@ public:
         
         return *this;
     }
-
+    
     friend ostream &operator<<(ostream &out, const Test &test){
         out << "hello from test";
         return out;
@@ -55,7 +60,7 @@ public:
         cout << "freeing memory" << endl;
         delete [] _pBuffer;
     }
-    
+
 };
 
 Test getTest(){
@@ -63,11 +68,29 @@ Test getTest(){
 }                   //when function return objects they have to copy those objects, thus runs copy constructor
                     //copies the obj into temporary return value
 
+
+
 int main(){
-    Test test1 = getTest();         //copying the temporary return value object to test1 object, thus runs a copy constructor
-    //test1 = testx //runs assignment
-    cout << "------------" << endl;
-    cout << test1 << endl;
+    Test test1 = getTest();
+
+    int value1 = 7;
+    
+    int *pValue1 = &value1;
+    //int *pValue2 = &7; //cannot work as &7 is not an Lvalue, it is an Rvalue(temporary value)
+
+    Test *pTest1 = &test1;
+    //Test *pTest2 = &getTest(); //&getTest() return value is an RValue
+
+    int *pValue3 = &++value1;
+    cout << *pValue3 << endl;
+
+    // int *pValue4 = &value1++; 
+
+    //int s = &(7 + value1); //7 is an Rvalue, thus cannot take the address
+
+    //Rvalues are the return values of functions as they are temporary and doesnt have address
+
+
 
     return 0;
 }
