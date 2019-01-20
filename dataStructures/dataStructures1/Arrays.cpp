@@ -1,5 +1,8 @@
-#include<vector>
 #include<iostream>
+#include<vector>
+
+using namespace std;
+
 class Arrays {
 public:
 	char *a;
@@ -39,13 +42,18 @@ void foo(T (&bar)[N])			//array of size N passed as reference
 {
     // use N here
 }
+
 ////arrays----------------------------------------------------
 
-//int inputArr[] = { 1,1,1,4,5,6 };
-//Arrays test;
-//
-//test.customArrayAdd(inputArr, 0, 4, 2);
-//
-//for (int i = 0; i < (sizeof(inputArr)/sizeof(*inputArr)); i++) {
-//	cout << inputArr[i] << endl;
-//
+int main(){
+	int inputArr[] = { 1,1,1,4,5,6 };
+	Arrays test;
+
+	test.customArrayAdd(inputArr, 0, 4, 2);
+
+	for (int i = 0; i < (sizeof(inputArr)/sizeof(*inputArr)); i++) {
+		cout << inputArr[i] << endl;
+	}
+
+	return 0;
+}

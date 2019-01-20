@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/main.out",
+            "program": "${workspaceFolder}/DoublePointers/DoublePointerTricky.out",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

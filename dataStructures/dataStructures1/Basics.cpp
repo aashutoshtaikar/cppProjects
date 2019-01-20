@@ -1,4 +1,8 @@
-#pragma once
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
 //call by value
 int Internal_swap(int n1, int n2) {
 	int temp = n1;
@@ -23,22 +27,27 @@ void PointerSwap(int *n1, int *n2) {
 
 //static variable : It ensures that the value is retained even after the function exits 
 int StaticSwap(int n1,int n2) {
-	int temp = n1;
+	static int temp = n1;
 	n1 = n2;
 	n2 = temp;
 	return 0;
 }
 
-//int x = 1;
-//int y = 2;
-//cout << "x: " << x <<endl;
-//cout << "y: " << y<< endl;
-//
-//Internal_swap(1,2);
-//Refswap(x,y);
-//PointerSwap(&x,&y);
-//StaticSwap(x, y);
-//
-//cout << "x: " << x << endl;
-//cout << "y: " << y << endl;
+int main(){
+	int x = 1;
+	int y = 2;
+	cout << "x: " << x <<endl;
+	cout << "y: " << y<< endl;
+
+	Internal_swap(1,2);
+	Refswap(x,y);
+	PointerSwap(&x,&y);
+	StaticSwap(x, y);
+
+	cout << "x: " << x << endl;
+	cout << "y: " << y << endl;
+
+	return 0;
+}
+
 

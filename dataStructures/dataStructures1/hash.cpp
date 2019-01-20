@@ -1,6 +1,8 @@
-#pragma once
+#include<iostream>
 #include<string>
+
 using namespace std;
+
 /*Hash functions ---- collision resolving:
 					|-Seperate Chaining
 					|-Open Addressing
@@ -138,4 +140,21 @@ int HashIt::findBucket(string name) {
 			return (num % tableSize);
 		}
 	}
+}
+
+int main(){
+	HashIt hashObj; //calls the constructor
+	
+	hashObj.AddItem("Aashutosh", "wine");
+	hashObj.AddItem("Ganesh", "coffee");
+	hashObj.AddItem("Ameya", "Tea");
+	hashObj.AddItem("Sarah", "mocha");
+	hashObj.AddItem("Mike", "latte");
+	hashObj.AddItem("Emma", "locha");
+
+	hashObj.PrintTable();
+	hashObj.PrintItemsinIndex(4);
+	//hashObj.findBucket("Aashutosh");
+	//system("pause");
+	
 }

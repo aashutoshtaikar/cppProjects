@@ -1,4 +1,3 @@
-#pragma once
 #include<stdio.h>
 #include<iostream>
 
@@ -186,55 +185,23 @@ void LinkedList::PrintList() {
 		curr = curr->next;
 	}
 }
-/*linked list struct example
- struct node {
-	 int data;
-	 node *next;
- };
 
- node* n;
- node* t;
- node* h;
-
- void linkedList() {
-	 n = new node;
-	 n->data = 1;
-	 t = n;
-	 h = n;
-
-	 n = new node;
-	 n->data = 2;
-	 t->next = n;
-	 t = t->next;
-
-	 n = new node;
-	 n->data = 3;
-	 t->next = n;
-	 t = t->next;
-
-	 n = new node;
-	 n->data = 4;
-	 t->next = n;
-	 n->next = NULL;
-
-	 n = h;
-	 while (n != NULL)
-	 {
-		 cout << n->data << endl;
-		 n = n->next;
-	 }
- }
- */
 
 ////Linked List--------------------------------------------
+int main(int argc, char const *argv[])
+{
+	LinkedList ExampleList;
 
-	//LinkedList ExampleList;
+	ExampleList.AddNode(1);
+	ExampleList.AddNode(2);
+	ExampleList.AddNode(3);
 
-	//ExampleList.AddNode(1);
-	//ExampleList.AddNode(2);
-	//ExampleList.AddNode(3);
+	ExampleList.PrintList();
+	ExampleList.DeleteNode(1);
+	ExampleList.InsertNode(1, 5);
+	ExampleList.PrintList();
+	
+	return 0;
+}
 
-	//ExampleList.PrintList();
-	//ExampleList.DeleteNode(1);
-	//ExampleList.InsertNode(1, 5);
-	//ExampleList.PrintList();
+

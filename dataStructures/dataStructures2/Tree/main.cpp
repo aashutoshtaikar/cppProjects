@@ -1,8 +1,7 @@
 #include<iostream>
 #include"Tree.h"
 #include<string>
-#include<tuple>
-#include<vector>
+
 using namespace std;
 
 
@@ -11,7 +10,7 @@ int sumNum(Tree t);
 Tree last(Tree root);
 int countTreeAtLevel(Tree n, int level);
 
-int TreeEx(){
+int main(){
 
 	list<Tree> t1 = list<Tree>{ Tree(2,list<Tree>{Tree(6,list<Tree>{})}), Tree(1,list<Tree>{}) };
 	list<Tree> t2 = list<Tree>{ Tree(0,list<Tree>{}),Tree(1,list<Tree>{Tree(2,list<Tree>{}),Tree(3,list<Tree>{})}), Tree(4,list<Tree>{}) };
@@ -85,4 +84,3 @@ bool searchTree(Tree t, int num) {
 		contains = contains || searchTree(c, num);
 	}
 }
-

@@ -4,21 +4,20 @@
 using namespace std;
 
 class Tree {
-public:
 	int number;
 	list<Tree> children;
-
+public:
 
 	Tree(int n, list<Tree> ns) {
 		number = n;
 		children = ns;
 	}
 
-	list<Tree> getChildren() {
+	list<Tree> getChildren()const{
 		return children;
 	}
 
-	int getNum() {
+	int getNum()const{
 		return number;
 	}
 

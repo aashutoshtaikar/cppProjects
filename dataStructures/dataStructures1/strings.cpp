@@ -9,7 +9,7 @@ using namespace std;
 //	}
 //};
 
-void conversionex() {
+int main() {
 	string x = "22.5";
 	int a = stoi(x);
 	float b = stof(x);
@@ -22,4 +22,6 @@ void conversionex() {
 	int pos = y.at(1);
 	int tmp = y.find('x');
 	cout << tmp;
+
+	return 0;
 }
