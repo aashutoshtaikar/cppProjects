@@ -19,9 +19,9 @@ int main(){
 
     auto func1 = [](){ cout<<"hello from lambda with type int" << endl; return 1;} ;
 
-    test(func1);
+    test(func1);    //pass using auto
 
-    test([](){cout<<"hello from lambda with type int" << endl; return 1;});
+    test([](){cout<<"hello from lambda with type int" << endl; return 1;}); //pass directly
 
     return 0;
 }

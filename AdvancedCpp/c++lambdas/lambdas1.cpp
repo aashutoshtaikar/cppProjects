@@ -28,10 +28,10 @@ int main(){
 
     auto pdivide = [](double a, double b)->double{
         if(b==0){
-            return 0;   //deduced return type "double" conflicts with previously deduced type "int"
-        }               //cpp auto keyword is having trouble determining the return types. we have to specify using trailing return type.
-        return a/b;
-    };
+            return 0;   
+        }               
+        return a/b;     //auto deduced return type "double" conflicts with previously auto deduced type "int"
+    };                  //cpp auto keyword is having trouble determining the return types. we have to specify using trailing return type.
 
     cout << pdivide(10.0,5.0) << endl;
     cout << pdivide(10.0,0.0) << endl;
