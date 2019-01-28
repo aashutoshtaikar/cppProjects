@@ -7,10 +7,10 @@ struct node{
     node *right;
 };
 
-class BTree{
+class BSTree{
     public:
-    BTree();
-    ~BTree();
+    BSTree();
+    ~BSTree();
 
     void insert(int key);
     // node *bad_searchSegFault(int key);
@@ -24,9 +24,3 @@ class BTree{
     node* search(int key,node *leaf);
     node *root;
 };
-
-
-
-
-
-

@@ -16,11 +16,16 @@ int main(){
     string value;
 
     //C++ 11 specifics
-    decltype(value) name = "Bob";   //decltype returns the type of an existing variable; used to declare variables of an existing type
+    decltype(value) name = "Bob";   //decltype returns the type of an existing variable; used to declare variables of an existing type/copy the type
 
-    cout << typeid(value).name() << endl;
+    cout << typeid(value).name() << endl; //returns the type name
     
     cout << name << endl;
 
     return 0;
 }
+
+/* output:
+NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+Bob
+ */

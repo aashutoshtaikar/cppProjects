@@ -50,3 +50,8 @@ int main(){
 
     return 0;
 }
+
+/* output:
+hello
+tom
+ */

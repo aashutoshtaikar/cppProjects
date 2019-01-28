@@ -1,20 +1,20 @@
-#include "BTree.h"
+#include "BSTree.h"
 //constructor
-BTree::BTree(){
+BSTree::BSTree(){
     root=nullptr;
 }
 
 //destructor
-BTree::~BTree(){
+BSTree::~BSTree(){
     destroy_tree();
 }
 
 //public:
-void BTree::destroy_tree(){
+void BSTree::destroy_tree(){
     destroy_tree(root);
 }
 
-void BTree::insert(int key){
+void BSTree::insert(int key){
     if(root!=nullptr){            //if root is present
         insert(key,root);
     }
@@ -26,17 +26,17 @@ void BTree::insert(int key){
     }
 }
 
-// node* BTree::bad_searchSegFault(int key){
+// node* BSTree::bad_searchSegFault(int key){
 //     return bad_searchSegFault(key,root);
 // }
 
-node* BTree::search(int key){
+node* BSTree::search(int key){
     return search(key,root);
 }
 
 
 //private:
-void BTree::destroy_tree(node *leaf){
+void BSTree::destroy_tree(node *leaf){
     if(leaf!=nullptr){
         destroy_tree(leaf->left);
         destroy_tree(leaf->right);
@@ -44,7 +44,7 @@ void BTree::destroy_tree(node *leaf){
     }
 }
 
-void BTree::insert(int key,node *leaf){
+void BSTree::insert(int key,node *leaf){
     if(key < leaf->key_value){
         if(leaf->left!=nullptr){
             insert(key,leaf->left);
@@ -69,7 +69,7 @@ void BTree::insert(int key,node *leaf){
     }
 }
 
-// node* BTree::bad_searchSegFault(int key, node *leaf){
+// node* BSTree::bad_searchSegFault(int key, node *leaf){
 //     if(key<leaf->key_value){
 //         if(leaf->left!=nullptr){
 //             bad_searchSegFault(key,leaf->left);
@@ -90,7 +90,7 @@ void BTree::insert(int key,node *leaf){
 
 
 
-node* BTree::search(int key,node *leaf){
+node* BSTree::search(int key,node *leaf){
     if(leaf!=nullptr){
         if(key==leaf->key_value){
             return leaf;

@@ -31,4 +31,15 @@ int main(){
     return 0;
 }
 
-//implement a ring buffer with initializer list
+
+/* output:
+three
+apples
+orange
+banana
+one
+two
+three
+ */
+
+//Exercise: implement a ring buffer with initializer list

@@ -41,3 +41,13 @@ int main(){
 
     vector<string> strings{"one","two","three"};
 }
+
+/* output:
+5
+hello
+2
+2
+0
+5
+0
+ */

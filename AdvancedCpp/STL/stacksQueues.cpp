@@ -17,7 +17,7 @@ public:
     void print(){
         cout << namE << endl;
     }
-}
+};
 
 void stackExample(){
     stack<Test> testStack; //Last-In-First-Out 
@@ -78,7 +78,7 @@ void queueExample(){
 }
 
 int main(){
-    stackExample();
+    //stackExample();
     queueExample();
     return 0;
 }
