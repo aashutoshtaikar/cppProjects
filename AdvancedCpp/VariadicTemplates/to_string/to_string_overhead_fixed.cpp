@@ -30,6 +30,7 @@ int main()
 
 /* 0.40user 0.04system 0:00.45elapsed 100%CPU (0avgtext+0avgdata 66580maxresident)k
 0inputs+456outputs (0major+21026minor)pagefaults 0swaps
+ 
  Compilation time is lesser (0:00.45elapsed) than to_string_overhead
  program size is lesser (66580K) than to_string_overhead
  */

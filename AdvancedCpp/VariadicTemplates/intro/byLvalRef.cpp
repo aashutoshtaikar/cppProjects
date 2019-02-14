@@ -13,8 +13,6 @@ void Print(const T &a,const Params&... args){
 }
 
 
-
-
 int main()
 {
     Print(1,2.5,3,"4");

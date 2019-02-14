@@ -44,6 +44,7 @@ int main()
 
 /* 0.44user 0.07system 0:00.51elapsed 100%CPU (0avgtext+0avgdata 70572maxresident)k
 0inputs+888outputs (0major+22482minor)pagefaults 0swaps
+
  Compilation time is more (0:00.51elapsed)
  program size is more (70572K)
  */

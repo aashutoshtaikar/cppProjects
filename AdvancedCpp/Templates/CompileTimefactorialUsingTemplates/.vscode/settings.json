@@ -1,9 +1,7 @@
 {
     "files.associations": {
         "*.tpp": "cpp",
-        "mutex": "cpp",
-        "thread": "cpp",
-        "tuple": "cpp"
+        "iostream": "cpp"
     },
     "terminal.integrated.shell.windows": "cmd.exe"
 }

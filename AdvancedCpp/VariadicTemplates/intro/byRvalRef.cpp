@@ -3,7 +3,7 @@
 //base case function
 void Print(){}
 
-/* Passing args by Rvalue reference -- perfect forwarding */
+/* Passing args by Rvalue reference -- lval to lval and rval to rval perfect forwarding */
 template<typename T, typename...Params> 
 void Print(T&& a, Params&&... args){        
     std::cout << a;
