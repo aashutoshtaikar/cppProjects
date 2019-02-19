@@ -5,10 +5,12 @@
 
 */
 #include <iostream>
+#include <assert.h>
+#include "../include/tuple.h"
 
-/* void testTupleAssignment(){
+void testTupleAssignment(){
     Tuple<int,char> tuple;
-    get<0>(tuple) = 32;     //assign to the tuple
+    get<0>(tuple) = 34;     //assign to the tuple
     get<1>(tuple) = 'c';
 
     auto v1 = get<0>(tuple);   //assign from the tuple
@@ -19,11 +21,11 @@
 
 void testMakeTuple(){
     auto t2 = makeTuple(63,'H',std::string{"foo"});
-    assert(get<0>t2 == 64);
+    assert(get<0>(t2) == 64);
     assert(get<1>(t2)=='H');
-    assert(get<2>(t2=="foo"));
+    assert(get<2>(t2)=="foo");
 }
-*/
+
 
 int main() {
     std::cout << "Hello Easy C++ project!" << std::endl;
