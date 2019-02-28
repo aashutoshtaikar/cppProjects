@@ -50,6 +50,5 @@ int main() {
 	traveller1_thread.join();
 	traveller2_thread.join();
 	driver_thread.join();
-
 	return 0;
 }

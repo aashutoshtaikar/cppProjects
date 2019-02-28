@@ -5,11 +5,11 @@
     properly constructed threads are joinable: pass the callable obj as the arg to the thread class constructor
      default constructor thread obj is non joinable
 
-    after making the  call join that thread becomes non-joinable  
-    if we forget to call join then at the time of destructor call to that thread object std::terminate function will be called
+    after making the call join/detach that thread becomes non-joinable  
+    if we forget to join/detach then at the time of destructor call to that thread object std::terminate function will be called
     if a program has std::terminate call -- unsafe program
     
-    must check if the thread is joinable or not before calling the join/detach function
+    for safety must check if the thread is joinable or not before calling the join/detach function
     join/detach can be called only once in the threads lifecycle
 */
 

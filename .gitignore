@@ -1,2 +1,5 @@
-/.metadata/
+.metadata/
+.vscode/
+build/
+.settings/
 *.out
