@@ -1,7 +1,7 @@
 #include<iostream>
 #include<thread>
 
-int main(){
+int main(void){
     std::thread thread1([](){
         printf("funcA running - %d\n",std::this_thread::get_id());
 
@@ -11,8 +11,6 @@ int main(){
         thread3.join();
     });
 
-    
-
     std::thread thread2([](){
         printf("funcB running - %d\n",std::this_thread::get_id());
     });
@@ -21,4 +19,5 @@ int main(){
     thread2.join();
 
     printf("hello from main - %d\n",std::this_thread::get_id());
+    return 0;
 }

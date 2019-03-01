@@ -2,7 +2,7 @@
  * Options:
  * 1.stay awake all night -- disturbs the sleep ~ consumes your resources
  * 2.set alarm clock to wake up - bus stop is traffic dependent so may miss the stop cannot set alarm
- * 3.Ask someone who is getting off one stop before you to wake you up at the right moment -- best option
+ * 3.Ask someone(another thread) who is getting off one stop before you to wake you up at the right moment -- best option
  * */
 
 #include <iostream>
@@ -14,7 +14,7 @@ bool i_have_arrived = false;
 int final_destination = 13;
 int distance_to_destination = 10;
 int distance_covered = 0;
-
+ 
 bool keep_driving(){
 	while(distance_covered<=final_destination){
 		if(distance_covered==3) std::this_thread::sleep_for(std::chrono::milliseconds(1000)); //random traffic at stop 3
@@ -47,7 +47,7 @@ int main() {
 	std::thread traveller1_thread(keep_awake_all_night);
 	std::thread traveller2_thread(set_the_alarm_and_take_a_nap);
 
-	traveller1_thread.join();
+	traveller1_thread.join(); 
 	traveller2_thread.join();
 	driver_thread.join();
 	return 0;

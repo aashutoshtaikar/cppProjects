@@ -18,7 +18,7 @@ public:
     }
 };
 
-int main(){
+int main(void){
     std::thread thread1(foo);
     //thread1.join();
 
@@ -29,12 +29,11 @@ int main(){
         printf("hello from lambda - %d\n",std::this_thread::get_id());
     });
 
-    thread1.join();
+    thread1.join(); //main waits for thread1 to finish
     thread2.join();
     thread3.join();
-
-
+    //unblocks main thread -- executes main thread
 
     printf("hello from main - %d\n", std::this_thread::get_id());
-
+    return 0;
 }
