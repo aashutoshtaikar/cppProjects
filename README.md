@@ -1,7 +1,7 @@
 # cppProjects
 Note: Some projects contain Class interface and implementation in the same header file for simplicity and readability
 
-Resources:  
+# Resources:  
 1. Special Member functions(the big 5)  
 ![Special Member functions](resources/special_member_functions.png)
 
@@ -20,7 +20,11 @@ https://embeddedartistry.com/blog/2017/1/26/c11-improving-your-callback-game
 5. Embedded template lib  
 https://embeddedartistry.com/blog/2018/12/13/embedded-template-library
 
-Tools:
+6. Design Patterns intro     
+https://www.bogotobogo.com/DesignPatterns/introduction.php
+
+
+# Tools:
 1. Look from the eye of compiler  
 https://cppinsights.io/
 
