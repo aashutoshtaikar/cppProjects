@@ -68,6 +68,7 @@ void mergeAlla(vector<int> &input, int from, int middle, int to)
 
 void mergeSort(int input[], int from, int to);
 void merge(int input[], int from, int middle, int to);
+
 void mergeSortExecutor(int input[], int n);
 
 void mergeSort(int input[], int from, int to)
@@ -119,4 +120,19 @@ void merge(int input[], int from, int middle, int to)
 void mergeSortExecutor(int input[], int n)
 {
     mergeSort(input, 0, n - 1);
+}
+
+int main(int argc, char const *argv[])
+{
+    int input[] = {3,2,5,8,4,7,1,8};
+    int size = sizeof(input)/sizeof(input[0]);
+    
+	mergeSortExecutor(input,size);
+
+    for(size_t i = 0; i < size; i++)
+    {
+       cout << input[i];
+    }
+    
+	return 0;
 }

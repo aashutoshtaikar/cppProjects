@@ -1,5 +1,7 @@
 .metadata/
 .vscode/
+bin/
 build/
+lib/
 .settings/
 *.out

@@ -20,6 +20,7 @@ public:
     Test(){
         _pBuffer = new int[SIZE];
         memset(_pBuffer, 0 , sizeof(int)*SIZE);
+        
     }
 
     Test(int i){

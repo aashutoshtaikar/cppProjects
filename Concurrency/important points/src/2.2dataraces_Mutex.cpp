@@ -5,35 +5,55 @@
 #include <string>
 #include <mutex>
 
-//stack example
-class Stack{
-    int* m_data;
-    std::mutex m_mu;
-public:
- 
-    Stack(){
-        m_data = new int[2]{1,2};
-    }
+//race condition inheriting from interface
+class Stack 
+{ 
+    int top; 
+public: 
+    int a[MAX];    //Maximum size of Stack 
+  
+    Stack()  { top = -1; } 
+    bool push(int x); 
+    int pop(); 
+    bool isEmpty(); 
+}; 
+  
+bool Stack::push(int x) 
+{ 
+    if (top >= (MAX-1)) 
+    { 
+        std::cout << "Stack Overflow"; 
+        return false; 
+    } 
+    else
+    { 
+        a[++top] = x; 
+        std::cout<<x <<" pushed into stack\n"; 
+        return true; 
+    } 
+} 
+  
+int Stack::pop() 
+{ 
+    if (top < 0) 
+    { 
+        std::cout << "Stack Underflow"; 
+        return 0; 
+    } 
+    else
+    { 
+        int x = a[top--]; 
+        return x; 
+    } 
+} 
+  
+bool Stack::isEmpty() 
+{ 
+    return (top < 0); 
+} 
 
-    //pops off the item from top of the stack  
-    void pop(){
-        std::lock_guard<std::mutex> m_mu();
-        m_data[sizeof(m_data)/sizeof(*m_data) - 1] = 0; 
-    }   
 
-    //returns the item on top
-    int& top(){
-        return m_data[sizeof(m_data)/sizeof(*m_data) - 1];
-    }  
 
-    void stack_print(){
-        for(size_t i = 0; m_data[i] ; i++)
-        {
-            std::cout << m_data[i] << ' '; 
-        }
-        std::cout << '\n';
-    }
-};
 
 // void function1(Stack& stk){
 //     int v = stk.pop();

@@ -15,6 +15,7 @@ using namespace std;
  int main() {
 	 n = new node;
 	 n->data = 1;
+	 n->next = NULL;
 	 t = n;
 	 h = n;
 
