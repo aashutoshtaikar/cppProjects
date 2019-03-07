@@ -19,7 +19,7 @@ Integer::Integer(const Integer& obj){
 }
 
 Integer::Integer(Integer&& obj){
-    std::cout << "Integer(Integer&&)\n";
+    std::cout << "Integer(Integer&&)\n"; //copy the data from the source obj to the target obj
     m_pInt = obj.m_pInt;
     obj.m_pInt = nullptr;
 }
