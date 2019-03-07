@@ -3,7 +3,7 @@ Note: Some projects contain Class interface and implementation in the same heade
 
 Resources:  
 1. Special Member functions(the big 5)  
-[]!(resources/special_member_functions.png)
+![](resources/special_member_functions.png)
 
 2. When to Write Which Special Member  
 https://foonathan.net/blog/2019/02/26/special-member-functions.html
