@@ -6,10 +6,38 @@ void Transact(Account *pAccount){
     std::cout << "------Transaction started------" << "\n";
     std::cout << "Initial balance: " << pAccount->getBalance() << "\n";
     pAccount->deposit(100);
+    pAccount->accumulateInterest();    
+    pAccount->withdraw(170);
+    std::cout << "Interest rate: "<< pAccount->getInterestRate() << "\n";
+    std::cout << "Final balance: "<< pAccount->getBalance() << "\n";
+}
+
+void Transact_typeid(Account *pAccount){
+    std::cout << "------Transaction started------" << "\n";
+    std::cout << "Initial balance: " << pAccount->getBalance() << "\n";
+    pAccount->deposit(100);
     pAccount->accumulateInterest();
     
-    if (typeid(*pAccount)==typeid(Student)) {   //demonstration of RTTI
+    //1. demonstration of RTTI By typeid
+    if (typeid(*pAccount)==typeid(Student)) {   
         Student* pStudent = static_cast<Student*>(pAccount);
+        std::cout << "min balance of Student: " << pStudent->getMinimumBalance() << "\n";
+    }
+    
+    pAccount->withdraw(170);
+    std::cout << "Interest rate: "<< pAccount->getInterestRate() << "\n";
+    std::cout << "Final balance: "<< pAccount->getBalance() << "\n";
+}
+
+void Transact_dynamic_cast(Account *pAccount){
+    std::cout << "------Transaction started------" << "\n";
+    std::cout << "Initial balance: " << pAccount->getBalance() << "\n";
+    pAccount->deposit(100);
+    pAccount->accumulateInterest();
+    
+    //2. demonstration of RTTI By typeid
+    Student* pStudent = dynamic_cast<Student*>(pAccount);
+    if (pStudent!=nullptr) {   
         std::cout << "min balance of Student: " << pStudent->getMinimumBalance() << "\n";
     }
     
