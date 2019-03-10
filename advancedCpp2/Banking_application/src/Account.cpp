@@ -25,9 +25,6 @@ int Account::getAccountNo() const{
 }
 
 //operations
-void Account::accumulateInterest(){
-}
-
 void Account::withdraw(float amount){
     if(m_balance>amount) {
         m_balance -=amount;
@@ -42,6 +39,10 @@ void Account::deposit(float amount){
 }
 
 //will be implmented by child classes 
+
+void Account::accumulateInterest(){
+}
+
 float Account::getInterestRate() const 
 {
     return 0.0f;
