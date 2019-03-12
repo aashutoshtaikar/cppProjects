@@ -22,7 +22,6 @@ void error(const char *msg){
 }
 
 
-
 int main(int argc, char *argv[]) 
 { 
     int sockfd, portno, n;
@@ -50,9 +49,7 @@ int main(int argc, char *argv[])
     //clear serv_addr
     bzero((char*) &network_addr, sizeof(network_addr));
     network_addr.sin_family = AF_INET;
-    bcopy((char *)server->h_addr_list[0], 
-        (char *)&network_addr.sin_addr.s_addr, 
-        server->h_length);
+    bcopy((char *)server->h_addr_list[0], (char *)&network_addr.sin_addr.s_addr, server->h_length);
     network_addr.sin_port = htons(portno);
 
     //connect
@@ -62,21 +59,21 @@ int main(int argc, char *argv[])
 
     
     //loop
-    while(1)
-    {
-        bzero(buffer,256);
+    while(1){
+        //write
+        bzero(buffer,256); 
         printf("Client: ");
         fgets(buffer,255,stdin);
         n = write(sockfd, buffer, strlen(buffer));
         if (n < 0) error("error on writing");
 
+        //read
         bzero(buffer, 256);
         n = read(sockfd, buffer, 255);
         if (n<0) error("error on reading");
         printf("Server: %s\n", buffer);
 
-        int i = strncmp("bye", buffer, 3);
-        if (i==0) break;
+        if (strncmp("exit", buffer, 4)==0) break;
     }
 
     close(sockfd);
