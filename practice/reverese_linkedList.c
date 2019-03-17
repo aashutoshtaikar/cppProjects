@@ -39,6 +39,17 @@ void printNode(nodeHeader* header){
     printf("%d, ",current->value);
 }
 
+void reverseNodes(nodeHeader* header){
+    node* current = header->head;
+    node* temp = current;
+   while(temp->next != NULL){
+    temp = current->next->next;
+    current->next->next = current;
+    current->next = NULL;
+        current = temp;
+    }
+}
+
 int main(){
     nodeHeader* nh = (nodeHeader*)malloc(sizeof(nodeHeader));
     nh->head = NULL;
