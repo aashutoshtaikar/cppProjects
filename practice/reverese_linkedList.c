@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct Node{
     int value;
@@ -32,22 +33,29 @@ void addNode(nodeHeader* header, int val){
 
 void printNode(nodeHeader* header){
     node* current = header->head; 
-    while(current->next != header->tail->next){
+  
+    while(current != NULL){
         printf("%d, ",current->value);
         current = current->next;    
     }
-    printf("%d, ",current->value);
+    printf("\n");
 }
 
 void reverseNodes(nodeHeader* header){
-    node* current = header->head;
-    node* temp = current;
-   while(temp->next != NULL){
-    temp = current->next->next;
-    current->next->next = current;
-    current->next = NULL;
-        current = temp;
-    }
+    node* prev = NULL;
+    node* curr = header->head;
+    node* Next = NULL;
+    
+    header->tail = header->head;
+   
+   while(curr != NULL){
+       Next = curr->next;
+       curr->next = prev;
+       prev = curr;
+       curr = Next;
+   }
+   header->head = prev;
+   
 }
 
 int main(){
@@ -57,6 +65,10 @@ int main(){
     addNode(nh,1);
     addNode(nh,2);
     addNode(nh,3);
-
+    
+    printNode(nh);
+    
+    reverseNodes(nh);
+    
     printNode(nh);
 }
