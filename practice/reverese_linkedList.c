@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//test
 typedef struct Node{
     int value;
     struct Node* next;
