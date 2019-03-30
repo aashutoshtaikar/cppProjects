@@ -24,6 +24,9 @@ https://embeddedartistry.com/blog/2018/12/13/embedded-template-library
 6. Design Patterns intro     
 https://www.bogotobogo.com/DesignPatterns/introduction.php
 
+7. Improving your callback game
+https://embeddedartistry.com/blog/2017/1/26/c11-improving-your-callback-game
+
 
 # Tools:
 1. Look from the eye of compiler  

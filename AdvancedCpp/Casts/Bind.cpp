@@ -45,7 +45,7 @@ int main(){
     auto calculate4 = bind(&Test::add, test, _2,100,_1);
     cout << run(calculate4) <<endl;
 
-    //bindind static methods -- stack ov
+    //bindind static methods -- example codes can be found on stack ov
 
 
     return 0;
