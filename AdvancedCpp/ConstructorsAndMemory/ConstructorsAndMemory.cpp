@@ -36,8 +36,7 @@ public:
         //copy constructor can call an assignment operator but to keep seperate we can do=>
     }
 
-    Test &operator=(const Test &other){
-        //=>this
+    Test &operator=(const Test &other){ //=>this
         cout << "assignment" << endl;
         _pBuffer = new int[SIZE]{};
 

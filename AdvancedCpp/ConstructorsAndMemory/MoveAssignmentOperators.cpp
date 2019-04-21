@@ -40,7 +40,16 @@ public:
         //copy constructor can call an assignment operator but to keep seperate we can do=>
     }
 
+    Test &operator=(const Test &other){
+        _pBuffer = new int[SIZE]{};
+
+        memcpy(_pBuffer, other._pBuffer, sizeof(int)*SIZE); //avoid memory overruns / underruns 
+        
+        return *this;
+    }
+
     //very efficient than the copy constructor
+    //move constructors are fine if the memory allocation is some const value like SIZE=100 is const here, however in other cases we have to use copy constructors
     Test(Test &&other){
         cout << "move constructor" << endl; //can have a check if this != other
         _pBuffer = other._pBuffer;  //the destructor of other will de-allocate the buffer which we have stolen, which we dont want to happen
@@ -48,25 +57,13 @@ public:
         //we stole resources that the Rvalue actually owns and then we are setting them to null in the Rvalue obj, so that it cannot deallocate itself 
     }
 
-    //move constructors are fine if the memory allocation is some const value like SIZE=100 is const here, however in other cases we have to use copy constructors
-
     //move assignment operator
     Test &operator=(Test &&other){
         cout << "move assignment" << endl;
-        delete [] other._pBuffer;
-        _pBuffer = other._pBuffer;
+        delete [] _pBuffer;         //very imporatant to (delete)de-allocate original memory previously allocated by this object 
+        _pBuffer = other._pBuffer;  //even after _pBuffer is deleted in the destructor it will clear memory from the other but it will not clear up the original memory
         other._pBuffer = nullptr;
 
-        return *this;
-    }
-
-
-
-    Test &operator=(const Test &other){
-        _pBuffer = new int[SIZE]{};
-
-        memcpy(_pBuffer, other._pBuffer, sizeof(int)*SIZE); //avoid memory overruns / underruns 
-        
         return *this;
     }
     

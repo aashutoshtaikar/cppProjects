@@ -11,11 +11,20 @@ public:
         :m_Name(text), m_Age(-1){}
 
     Entity(int age)
-        :m_Name("Unknown"), m_Age(age){}
+        :m_Name("Undefined"), m_Age(age){}
+
+    int get_age()const{
+        return m_Age;
+    }
+
+    std::string get_name()const{
+        return m_Name;
+    }
 };
 
 void PrintEntity(const Entity& entity){
     //printing
+    std::cout << entity.get_name() << " " << entity.get_age() <<"\n";
 }
 
 int main(){
@@ -29,7 +38,7 @@ int main(){
     
     PrintEntity(std::string("Ash")); //type casting from char[] to string
     PrintEntity(Entity("Ash")); //implicit conversion helping
-    PrintEntity(25);
+    PrintEntity(25);            //implicit conversion helping
 
     //Entity a = "Ash";   //error as the implicit conversion allows only 1 type conversion
     Entity b = 25;

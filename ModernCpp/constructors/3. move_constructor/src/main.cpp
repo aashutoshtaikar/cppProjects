@@ -8,11 +8,13 @@ Integer Add(const Integer& a, const Integer& b){
     return temp;
 }
 
+
 int main(int argc, char const *argv[])
 {
+    using namespace std;
+    // Integer a(1),b(3);
+    // a.setValue(Add(a,b).getValue());   
 
-    Integer a(1),b(3);
-    a.setValue(Add(a,b).getValue());   
 
     return 0;
 }

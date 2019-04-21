@@ -30,9 +30,10 @@ namespace orange{
 
 int main(){
     //using namespace apple;
-
+    namespace aof = apple::otherFunctions;
+    
     apple::functions::print("hello1");
-    apple::otherFunctions::print("hello2");
+    aof::print("hello2");
 
     namespace a = apple::functions;
     a::print("hello3");

@@ -1,0 +1,19 @@
+*Assignment1:
+Convert the following functions into templates
+
+int Add(int x,int y) ; //Return the sum of two elements
+int ArraySum(int *pArr, int arrSize); //Returns the sum of array elements
+int Max(int *pArr, int arrSize) ; //Return the largest element in the array
+std::pair<int,int> MinMax(int *pArr, int arrSize) ; //Return the smallest and largest element in a pair
+
+Take care to avoid copies of user-defined objects wherever applicable.
+
+*Assignment2:
+For the previous assignment, check the assembly code for instantiated function templates.
+Note what happens if the function template is not invoked.
+
+
+*Assignment3:
+1. Modify the function templates created in Assignment I to accept array by reference.
+2. Create specialization of the function templates created in Assignment I. Specialized for const char * & std::vector<int>
+3. Define the specialized functions in a .h file and include it in multiple source files. Observe what happens.
