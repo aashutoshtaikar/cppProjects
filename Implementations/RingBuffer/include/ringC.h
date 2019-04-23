@@ -24,9 +24,18 @@ public:
         return m_size;
     }
 
-    template <class T, class ...Tpack>
-    void add(T value){
-        m_values[m_pos] = value;
+    // template <class U, class... Tpack>
+    // void add(U&& value, Tpack&&... args){
+    //     m_values[m_pos] = static_cast<T>(value);
+    //     m_pos++;
+    //     if (m_pos == m_size) m_pos = 0;
+    //     add(args...);
+    // }
+    
+    template<class U>
+    void add(U&& value){
+        using U = T;
+        m_values[m_pos] = static_cast<U>(value);
         m_pos++;
         if (m_pos == m_size) m_pos = 0;
     }
