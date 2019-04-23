@@ -1,4 +1,7 @@
-/* Generic Printer using variadic function template */
+/* Generic Printer using variadic function template 
+    Problem : makes multiple copies of the object which affects performance
+*/
+
 #include <iostream>
 
 void print(){
@@ -15,7 +18,7 @@ void print(T val, T_pack... val_pack){
 
 
 int main() {
-    print(1,2,'a',5.3, "hello world", "99999999999999999999999999999999999999");
+    print(1,2,'a',5.3,"hello world" , "999");
 
     return 0;
 }

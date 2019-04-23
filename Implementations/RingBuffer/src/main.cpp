@@ -54,9 +54,9 @@ void test_ringB(){
 void test_ringC(){
     rb::ringC<std::string> textring(3);
 
-    textring.add("one");
-    textring.add("two");
-    textring.add("three");
+    textring.add(std::string{"one"});
+    textring.add(2);
+    textring.add(std::string{"three"});
     // textring.add("four","five","six");
 
     // for(int i = 0; i < textring.size(); i++){
