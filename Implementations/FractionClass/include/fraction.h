@@ -1,8 +1,7 @@
 #include<iostream>
-#include<sstream>
 #include <stdexcept>
 #include <cmath>
-#include<variant>
+#include <vector>
 
 class fraction
 {
@@ -43,12 +42,15 @@ public:
     operator float();
     operator double();
 
-    //operations
+    //functions
     fraction get_reciprocal()const;
     void reciprocal();
     static long double gcd(const long double& x,const long double& y);
+
+//    static long double lcm(std::initializer_list<fraction> fracs);
     fraction get_simplify()const;
     const fraction& simplify();
+
 
     //public accessors
     long double get_nr()const;

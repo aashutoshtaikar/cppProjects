@@ -174,9 +174,9 @@ void fraction::set_dr(const long double& d)
     }
 }
 
-////////////////////
-//logic functions//
-//////////////////
+//////////////
+//functions//
+////////////
 fraction fraction::get_reciprocal()const{
     try {
         return (fraction(dr,nr));
@@ -208,6 +208,16 @@ long double fraction::gcd(const long double& x,const long double& y)
     }
     return divisor;
 }
+
+//long double fraction::lcm(std::initializer_list<fraction> fracs)
+//{
+//    std::vector<long double> denoms;
+//    for (auto i : fracs) {
+//        denoms.push_back(i.get_dr());
+//    }
+
+
+//}
 
 fraction fraction::get_simplify() const
 {
