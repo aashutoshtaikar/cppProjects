@@ -66,9 +66,7 @@ public:
 
 std::ostream& operator<<(std::ostream &out, const fraction &frac);
 
-
 fraction operator+(const long double& number, const fraction& frac);
-
 fraction operator+(const fraction& frac,const long double& number);
 
 fraction operator-(const long double& number, const fraction& frac);
