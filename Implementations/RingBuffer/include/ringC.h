@@ -2,7 +2,7 @@
 
 namespace RingBuffer
 {
-
+#include <string>
 template <class T>
 class ringC{
 private:
@@ -17,25 +17,24 @@ public:
     ringC(int size):m_nullvalue{},m_pos(0),m_size(size),m_values(new T[size]){}
     
     ~ringC(){
-        delete [] m_values;
+        delete[] m_values;
     }
 
     int size()const{
         return m_size;
     }
 
-    // template <class U, class... Tpack>
-    // void add(U&& value, Tpack&&... args){
-    //     m_values[m_pos] = static_cast<T>(value);
-    //     m_pos++;
-    //     if (m_pos == m_size) m_pos = 0;
-    //     add(args...);
-    // }
+    template <class U, class... Tpack>
+    void add(U&& value, Tpack&&... args){
+        m_values[m_pos] = static_cast<T>(value);
+        m_pos++;
+        if (m_pos == m_size) m_pos = 0;
+        add(args...);
+    }
     
     template<class U>
     void add(U&& value){
-        using U = T;
-        m_values[m_pos] = static_cast<U>(value);
+        m_values[m_pos] = static_cast<T>(value);    //cast fails, needs fix
         m_pos++;
         if (m_pos == m_size) m_pos = 0;
     }

@@ -53,10 +53,10 @@ void test_ringB(){
 
 void test_ringC(){
     rb::ringC<std::string> textring(3);
-
-    textring.add(std::string{"one"});
-    textring.add(2);
-    textring.add(std::string{"three"});
+    textring.add("one", 2, "three", "four", "five");
+    // textring.add("one");
+    // textring.add("one");
+    // textring.add("three");
     // textring.add("four","five","six");
 
     // for(int i = 0; i < textring.size(); i++){
