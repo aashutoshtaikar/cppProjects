@@ -26,14 +26,14 @@ public:
     void loadData(){
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         std::cout << "Loading data from XML\n";
-        std::lock_guard data_struct_lock(m_mutex);
+        std::lock_guard<std::mutex> data_struct_lock(m_mutex);
         m_bDataLoaded = true;
         m_condVar.notify_one();
     }
 
     void mainTask(){
         std::cout << "Do some handshaking with the server\n";
-        std::unique_lock ulock(m_mutex);
+        std::unique_lock<std::mutex> ulock(m_mutex);
         m_condVar.wait(ulock, std::bind(&Application::isDataLoaded,this));  //wait for the data to be loaded by loader_thread
         m_condVar.notify_one();
         std::cout << "Do processing over loaded data\n";
