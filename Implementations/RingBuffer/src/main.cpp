@@ -5,82 +5,50 @@
 #include "ringC.h"
 
 using namespace std;
-namespace rb = RingBuffer;
+using namespace RingBuffer;
 
-void test_ringA(){
-    rb::ringA<std::string> textring(3);
+template<class obj_t>
+void run_test_on(obj_t ringObject){
+        ringObject.add("one");
+        ringObject.add("two");
+        ringObject.add("three");
 
-    textring.add("one");
-    textring.add("two");
-    textring.add("three");
-    // textring.add({"four","five","six"});
-
-    // for(int i = 0; i < textring.size(); i++){
-    //     cout << textring.get(i) << endl;
+    // for(int i = 0; i < ringObject.size(); i++){
+    //     cout << ringObject.get(i) << endl;
     // }
-    // cout << textring.get(4);
+    // cout << ringObject.get(4);
 
-    for(rb::ringA<std::string>::iterator it = textring.begin(); it!=textring.end(); it++){
-        cout << *it << endl;
-    }
-
-    for(auto&& i : textring){
+    // for(ringA<std::string>::iterator it = ringObject.begin(); it!=ringObject.end(); it++){
+    //     cout << *it << endl;
+    // }
+    for(auto&& i : ringObject){
         cout << i << endl;
     }
 }
 
-void test_ringB(){
-    rb::ringB<std::string> textring(3);
+template<>
+void run_test_on(ringB<string> ringObject){
+    
+    ringObject.add({"four","five","six"});
 
-    textring.add({"one"});
-    textring.add({"two"});
-    textring.add({"three"});
-    // textring.add({"four","five","six"});
-
-    // for(int i = 0; i < textring.size(); i++){
-    //     cout << textring.get(i) << endl;
+    // for(int i = 0; i < ringObject.size(); i++){
+    //     cout << ringObject.get(i) << endl;
     // }
-    // cout << textring.get(4);
+    // cout << ringObject.get(4);
 
-    for(rb::ringB<string>::iterator it = textring.begin(); it!=textring.end(); it++){
-        cout << *it << endl;
-    }
-
-    for(auto&& i : textring){
+    // for(ringA<std::string>::iterator it = ringObject.begin(); it!=ringObject.end(); it++){
+    //     cout << *it << endl;
+    // }
+    for(auto&& i : ringObject){
         cout << i << endl;
     }
 }
 
-void test_ringC(){
-    rb::ringC<std::string> textring(3);
-    textring.add("one", "one", "three", "four", "five");
-    // textring.add("one");
-    // textring.add("one");
-    // textring.add("three");
-
-    // textring.add(std::string{"one"});
-    // textring.add(std::string{"one"});
-    // textring.add(std::string{"three"});
-    // textring.add("four","five","six");
-
-    // for(int i = 0; i < textring.size(); i++){
-    //     cout << textring.get(i) << endl;
-    // }
-    // cout << textring.get(4);
-
-    for(rb::ringC<string>::iterator it = textring.begin(); it!=textring.end(); it++){
-        cout << *it << endl;
-    }
-
-    for(auto&& i : textring){
-        cout << i << endl;
-    }
-}
 
 int main() {
-    test_ringC();
-    
-    
+    run_test_on(ringA<std::string>(3));
+    run_test_on(ringB<std::string>(3));
+    run_test_on(ringC<std::string>(3));
 
     return 0;
 }

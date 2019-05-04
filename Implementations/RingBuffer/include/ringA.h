@@ -2,6 +2,7 @@
 /* Ring buffer: values allocated on heap
     iterable class with iterator
  */
+#include <string>
 namespace RingBuffer
 {
 template<class T>

@@ -4,6 +4,7 @@
     -iterable class with iterator
     -with variable constructor args -- initializer list
  */
+#include <string>
 namespace RingBuffer{
 #include <initializer_list>
 template <class T>
