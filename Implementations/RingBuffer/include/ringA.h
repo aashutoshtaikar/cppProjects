@@ -82,9 +82,6 @@ class ringA<T>::iterator{
     bool operator==(const iterator& otherit){
       return m_itpos==otherit.m_itpos;
     }
-
-
-
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ayt{
+namespace memory_ayt{
 
 template <typename T>
 class unique_ptr

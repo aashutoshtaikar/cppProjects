@@ -3,12 +3,20 @@
 2. Add a new property sheet  
 3. Double click to open the property pages settings  
 
-Under Common Properties:  
+To keep under solution->  
 Output Directory:   
-$(SolutionDir)$(ProjectName)\bin\$(Platform)\$(Configuration)\  
+$(SolutionDir)bin\$(Platform)\$(Configuration)\  
 
 Intermediate Directory:  
-$(SolutionDir)$(ProjectName)\bin\intermediates\$(Platform)\$(Configuration)\  
+$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\  
+
+To keep under project->  
+Under Common Properties:  
+Output Directory:   
+$(SolutionDir)$(ProjectName)bin\$(Platform)\$(Configuration)\  
+
+Intermediate Directory:  
+$(SolutionDir)$(ProjectName)bin\intermediates\$(Platform)\$(Configuration)\  
 
 OpenCV settings example:  
 Under C/C++:  

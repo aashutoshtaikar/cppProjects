@@ -1,8 +1,7 @@
 #pragma once
-
-namespace RingBuffer
-{
 #include <string>
+namespace RingBuffer{
+    
 template <class T>
 class ringC{
 private:
@@ -23,11 +22,11 @@ public:
     int size()const{
         return m_size;
     }
-
-<<<<<<< HEAD
+    
     template <class U, class... Tpack>
     void add(U&& value, Tpack&&... args){
-        m_values[m_pos] = static_cast<T>(value);
+        // m_values[m_pos] = static_cast<T>(value); //not possible
+        m_values[m_pos] = value;
         m_pos++;
         if (m_pos == m_size) m_pos = 0;
         add(args...);
@@ -35,21 +34,8 @@ public:
     
     template<class U>
     void add(U&& value){
-        m_values[m_pos] = static_cast<T>(value);    //cast fails, needs fix
-=======
-    // template <class U, class... Tpack>
-    // void add(U&& value, Tpack&&... args){
-    //     m_values[m_pos] = static_cast<T>(value);
-    //     m_pos++;
-    //     if (m_pos == m_size) m_pos = 0;
-    //     add(args...);
-    // }
-    
-    template<class U>
-    void add(U&& value){
-        using U = T;
-        m_values[m_pos] = static_cast<U>(value);
->>>>>>> 05dd884fb5f0597eb5298e0e0cf86203e4c5ed4c
+        // m_values[m_pos] = static_cast<U>(value); //not possible
+        m_values[m_pos] = value;
         m_pos++;
         if (m_pos == m_size) m_pos = 0;
     }
@@ -103,7 +89,4 @@ public:
         return m_itpos==otherit.m_itpos;
     }
 };
-
-
-
 } // RingBufer
