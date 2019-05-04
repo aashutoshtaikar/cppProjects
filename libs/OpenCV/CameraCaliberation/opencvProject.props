@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)$(ProjectName)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)$(ProjectName)\bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>C:\opencv_git\opencv_build\install\x64\vc15\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_core401.lib;opencv_core401d.lib;opencv_imgproc401.lib;opencv_imgproc401d.lib;opencv_highgui401.lib;opencv_highgui401d.lib;opencv_video401.lib;opencv_video401d.lib;opencv_videoio401.lib;opencv_videoio401d.lib;opencv_imgcodecs401.lib;opencv_imgcodecs401d.lib;opencv_calib3d401.lib;opencv_calib3d401d.lib;opencv_aruco401.lib;opencv_aruco401d.lib;opencv_ccalib401.lib;opencv_ccalib401d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\opencv_git\opencv_build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

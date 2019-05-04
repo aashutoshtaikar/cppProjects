@@ -1,5 +1,6 @@
 .metadata/
 .vscode/
+.vs/
 bin/
 build/
 lib/
