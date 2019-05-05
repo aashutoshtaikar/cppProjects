@@ -1,21 +1,18 @@
 #ifndef CONTROLLER_NODECONTROLLER_H_
 #define CONTROLLER_NODECONTROLLER_H_
 
-#include"Node.h"
-#include"Node.cpp"
-#include"ArrayNode.h"
-#include"ArrayNode.cpp"
+#include"../Model/Node.h"
+#include"../Model/ArrayNode.h"
 #include<string>
 
-using namespace std;
 
 class NodeController
 {
 private:
-	Node<string> stringNode;
+	Node<std::string> stringNode;
 	Node<int> intNode;
-	ArrayNode<string> stringArrayNode;
-	ArrayNode<string> otherArrayNode;
+	ArrayNode<std::string> stringArrayNode;
+	ArrayNode<std::string> otherArrayNode;
 public:
 	NodeController();
 	virtual ~NodeController();

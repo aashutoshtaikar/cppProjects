@@ -1,5 +1,10 @@
 #pragma once
 #include <string>
+/* Ring buffer: 
+    -values allocated on heap
+    -iterable class with iterator
+    -with variable constructor args -- variadic templates
+ */
 namespace RingBuffer{
     
 template <class T>

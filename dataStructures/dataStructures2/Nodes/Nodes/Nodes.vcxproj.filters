@@ -15,25 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="Controller\NodeController.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ArrayNode.h">
+    <ClInclude Include="Model\ArrayNode.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="NodeController.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Model\Node.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Node.cpp">
+    <ClCompile Include="Model\ArrayNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ArrayNode.cpp">
+    <ClCompile Include="Controller\NodeRunner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NodeController.cpp">
+    <ClCompile Include="Controller\NodeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
