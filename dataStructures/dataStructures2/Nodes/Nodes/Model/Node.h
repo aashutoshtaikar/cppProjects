@@ -19,20 +19,20 @@ public:
 		this->pointers = nullptr;
 	}
 
-	~Node(){
+	virtual ~Node(){
 		//to do
 	}
 
-	getValue(){
+	Type getValue(){
 		return this->value;
 	}
 
 	template<class Type>
-	setValue(Type value){
+	void setValue(Type value){
 		this->value = value;
 	}
 
-	getPointers(){
+	Node* getPointers(){
 		return this->pointers;
 	}
 };

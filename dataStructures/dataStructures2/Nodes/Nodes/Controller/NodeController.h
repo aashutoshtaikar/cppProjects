@@ -3,6 +3,7 @@
 
 #include"../Model/Node.h"
 #include"../Model/ArrayNode.h"
+#include<iostream>
 #include<string>
 
 
@@ -13,6 +14,7 @@ private:
 	Node<int> intNode;
 	ArrayNode<std::string> stringArrayNode;
 	ArrayNode<std::string> otherArrayNode;
+
 public:
 	NodeController();
 	virtual ~NodeController();

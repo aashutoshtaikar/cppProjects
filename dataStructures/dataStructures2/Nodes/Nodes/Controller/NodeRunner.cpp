@@ -1,7 +1,10 @@
 #include<iostream>
 #include "NodeController.h"
-#include "../Model/ArrayNode.h"
 
 int main() {
+	NodeController x;
+	x.start();
 
+	std::cin.get();
+	return 0;
 }
