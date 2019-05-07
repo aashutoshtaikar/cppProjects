@@ -6,10 +6,12 @@
 #include <iostream>
 #include "Integer.h"
 
+//base case function
 void print(){
-    std::cout << ".\n"; 
+    std::cout << " .\n"; 
 }
 
+/* Passing args by lvalue reference */
 template <class T, class... T_pack>
 void print(const T& val, const T_pack&... val_pack){
     std::cout << val;

@@ -1,32 +1,43 @@
 #include <iostream>
-<<<<<<< HEAD
+#include "stack_v1.h"
 #include "stack_test.h"
 
-int main() {
-    using namespace ayt;
-    stack<int> x(1,2,3,4,5,6,7,8,9,10,11);
-    x.push(2, 5, 6);
 
-    std::cout << "Size:" << x.size() << "\n";
-    std::cout << "Capacity:" << x.capacity() << "\n";
+class stack_test{
+    static void test1(){
+        using namespace test_ayt;
+        stack<int> x(1, 2, 3);
+        std::cout << x.size() << "\n";
 
-    for(auto i : x){
-        std::cout << i << " ";
+        for (auto i : x)
+        {
+            std::cout << i << "-";
+            // std::cout << x.top();
+        }
     }
-    std::cout << "\n";
-    // stack<int> y(15,12);
-    // std::cout << y.capacity(); 
-=======
-#include "stack.h"
+};
+
+class test_stack_v1{
+    static void test1(){
+        using namespace ayt;
+        stack<int> x(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+        x.push(2, 5, 6);
+
+        std::cout << "Size:" << x.size() << "\n";
+        std::cout << "Capacity:" << x.capacity() << "\n";
+
+        for (auto i : x)
+        {
+            std::cout << i << " ";
+        }
+        std::cout << "\n";
+        // stack<int> y(15,12);
+        // std::cout << y.capacity();
+    }
+};
+
+
 
 int main() {
-    using namespace ayt;
-    stack<int> x(1,2,3,4);
-    std::cout << x.size();
 
-    for(auto i : x){
-        std::cout << i << " ";
-        // std::cout << x.top();
-    }
->>>>>>> 05dd884fb5f0597eb5298e0e0cf86203e4c5ed4c
 }

@@ -1,7 +1,4 @@
 #pragma once
-/* incomplete implementation 
-    If ptr is NULL, the behavior is the same as calling malloc(new_size).
-*/
 #include <stdlib.h>
 
 namespace ayt{
@@ -17,48 +14,49 @@ private:
 
 private:
     void alloc(){
+
         if (m_Top == alloc_size) alloc_size *= 2;
+
+        //If ptr is NULL, the behavior is the same as calling malloc(new_size).
+        // m_Buffer = new stack_t[10]; //allocate 10
         m_Buffer = (stack_t*) realloc (m_Buffer, sizeof(stack_t) * alloc_size); //allocate 10
     }
 
-    // deallocate by 10
-    void dealloc(){
-        if(alloc_size-m_Top > alloc_size){ 
-            alloc_size /= 2;    
-            m_Buffer = (stack_t*) realloc (m_Buffer, sizeof(stack_t) * alloc_size);  
-        }
-    }
+    //deallocate by 10
+    // void dealloc(){
+    //     if(alloc_size-m_Top > 10){ 
+    //         alloc_size /= 2;    
+    //         m_Buffer = (stack_t*) realloc (m_Buffer, sizeof(stack_t) * alloc_size);  
+    //     }
+    // }
 
 public:
     class iterator;
 
 public:
-
-    template<class val_t, class...rest_t>
-    stack(val_t&& val,rest_t&&... rest){
-        push(val);
-        push(rest...);
-    }
+    // stack(){}
 
     template<class T>
-    void push(T&& val){
-        if(m_Top==0 || m_Top==alloc_size) alloc();
-        m_Buffer[m_Top] = val;
-        m_Top++;
+    stack(T&& val){
+        push(val);
     }
 
-    template<class val_t, class...rest_t>
-    void push(val_t&& val,rest_t&&... rest){
+    template<class T, class...T_pack>
+    stack(T&& val,T_pack&&... args){
+        push(val);
+        stack(args...);
+    }
+
+
+    void push(int val){
         if(m_Top==0 || m_Top==alloc_size) alloc();
         m_Buffer[m_Top] = val;
         m_Top++;
-        push(rest...);
     }
 
     void pop(){
-        --m_Top;
         m_Buffer[m_Top] = NULL;
-        dealloc();
+        --m_Top;
     }
 
     stack_t top()const{
@@ -69,12 +67,8 @@ public:
         return m_Top;
     }
 
-    int capacity()const{
-        return alloc_size;
-    }
-
     stack_t& get(int pos){
-        if(pos <= m_Top) return m_Buffer[pos];
+        if(pos <= m_Top) return m_Buffer[m_Top];
         std::cerr << "Error: value out of range\n";
         return m_nullvalue;
     }
@@ -123,6 +117,5 @@ public:
     }
     
 };
-
 
 }

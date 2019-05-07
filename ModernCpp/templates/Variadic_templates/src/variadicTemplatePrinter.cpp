@@ -1,6 +1,6 @@
 #include <iostream>
 
-/* need to have arg of  the same type */
+/* Problem: wo_variadic.cpp need to have arg of  the same type */
 // template <typename T>
 // void Print(std::initializer_list<T> args){
 //     for (const auto &x:args){
@@ -9,7 +9,9 @@
 // }
 
 //base case function
-void Print(){}
+void Print(){
+    std::cout << " .\n";
+}
 
 /* Passing args by value */
 template<typename T, typename...Params> //Template parameter pack
