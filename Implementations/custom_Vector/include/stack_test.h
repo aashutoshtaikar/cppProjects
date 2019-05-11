@@ -1,26 +1,25 @@
 #pragma once
-/* incomplete and buggy implementation */
 #include <stdlib.h>
 
-namespace ayt{
+namespace test_ayt{
 
 template<class stack_t>
 class stack
 {
 private:
     stack_t m_nullvalue;
-    stack_t* m_Buffer;
+    stack_t* m_Buffer{nullptr};
     int alloc_size{10};
     int m_Top;
 
 private:
     void alloc(){
 
-        if (m_Top > alloc_size) alloc_size *= 2;
+        if (m_Top == alloc_size) alloc_size *= 2;
 
         //If ptr is NULL, the behavior is the same as calling malloc(new_size).
-        m_Buffer = new int[10]; //allocate 10
-        // m_Buffer = (stack_t*) realloc (m_Buffer, sizeof(stack_t) * alloc_size); //allocate 10
+        // m_Buffer = new stack_t[10]; //allocate 10
+        m_Buffer = (stack_t*) realloc (m_Buffer, sizeof(stack_t) * alloc_size); //allocate 10
     }
 
     //deallocate by 10
@@ -35,7 +34,7 @@ public:
     class iterator;
 
 public:
-    // stack():{}
+    // stack(){}
 
     template<class T>
     stack(T&& val){
@@ -48,8 +47,9 @@ public:
         stack(args...);
     }
 
+
     void push(int val){
-        if(m_Top==0 || m_Top>alloc_size) alloc();
+        if(m_Top==0 || m_Top==alloc_size) alloc();
         m_Buffer[m_Top] = val;
         m_Top++;
     }
@@ -64,7 +64,7 @@ public:
     }
 
     int size()const{
-        return m_Top+1;
+        return m_Top;
     }
 
     stack_t& get(int pos){
@@ -89,7 +89,7 @@ public:
 template<class stack_t>
 class stack<stack_t>::iterator{
 private:
-    int m_itTop{};
+    int m_itTop;
     stack& m_stack;
 public:
     iterator(int top, stack& stk):m_itTop(top),m_stack(stk){}
@@ -117,6 +117,5 @@ public:
     }
     
 };
-
 
 }

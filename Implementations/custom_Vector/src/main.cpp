@@ -3,6 +3,20 @@
 #include "stack_test.h"
 
 
+class stack_test{
+public:
+    static void test1(){
+        using namespace test_ayt;
+        stack<int> x(1, 2, 3);
+        std::cout << x.size() << "\n";
+
+        for (auto i : x)
+        {
+            std::cout << i << "-";
+            // std::cout << x.top();
+        }
+    }
+};
 
 class test_stack_v1{
 public:
@@ -27,8 +41,9 @@ public:
 
 
 int main() {
+    // stack_test::test1();
     test_stack_v1::test1();
-    
+
     std::cin.get();
     return 0;
 }
